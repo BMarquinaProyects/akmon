@@ -1,0 +1,11 @@
+# Finales de línea fijos (LF) para todos los archivos de texto, sea cual sea el PC.
+# Sin esto, Windows (autocrlf) y KiCad pueden pelearse por CRLF/LF y ensuciar los diffs.
+* text=auto eol=lf
+
+# Binarios: nunca se tocan ni se intentan comparar línea a línea.
+*.png    binary
+*.jpg    binary
+*.pdf    binary
+*.zip    binary
+*.step   binary
+*.wrl    binary
