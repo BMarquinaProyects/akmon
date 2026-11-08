@@ -1,0 +1,37 @@
+# Akmon · .gitignore para KiCad 10
+# Regla: se versiona lo que TÚ creas (esquema, PCB, librería, reglas).
+# No se versiona lo que KiCad regenera solo o lo que es tuyo y de nadie más.
+
+# --- Copias de seguridad y autoguardado de KiCad ---
+*-backups/
+_autosave-*
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*.bak
+*.lck
+~*.lck
+
+# --- Cachés que KiCad reconstruye ---
+fp-info-cache
+*.kicad_sym-cache
+
+# --- Estado local del usuario (capas visibles, ventana, zoom) ---
+# Es solo tuyo: si lo subes, cada commit "cambia" sin que cambie el diseño.
+*.kicad_prl
+
+# --- Salidas de fabricación (Gerbers, taladros, BOM, posiciones) ---
+# Se regeneran desde el diseño con el jobset de KiCad (*.kicad_jobset), que SÍ se versiona:
+# es la «receta» de las salidas. Cada pedido a JLCPCB se publica como release de GitHub
+# (v1.0, v1.1…) con el ZIP adjunto: así se sabe exactamente qué se fabricó.
+fabricacion/*
+*.zip
+*.gbr
+*.gbrjob
+*.drl
+# Excepción: la BOM en CSV se versiona, para ver en cada diff qué piezas cambian.
+!fabricacion/*-bom.csv
+
+# --- Sistema ---
+desktop.ini
+Thumbs.db
+*.ico
